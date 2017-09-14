@@ -20,14 +20,14 @@ from SimpleHTTPServer import SimpleHTTPRequestHandler
 
 
 ROOT = join(dirname(abspath(__file__)), 'html')
-PORT = 7272
+PORT = 80
 
 
 class DemoServer(TCPServer):
     allow_reuse_address = True
 
     def __init__(self, port=PORT):
-        TCPServer.__init__(self, ('localhost', int(port )), SimpleHTTPRequestHandler)
+        TCPServer.__init__(self, ('https://pubsub-1.appspot.com', int(port )), SimpleHTTPRequestHandler)
 
     def serve(self, directory=ROOT):
         chdir(directory)
